@@ -171,6 +171,7 @@
             this.lblAdminPanel.Size = new System.Drawing.Size(229, 16);
             this.lblAdminPanel.TabIndex = 14;
             this.lblAdminPanel.Text = "Accéder au panneau d\'administration";
+            this.lblAdminPanel.Click += new System.EventHandler(this.lblAdminPanel_Click);
             // 
             // lblSeparationHorizontale
             // 
@@ -230,6 +231,7 @@
             this.Controls.Add(this.txtStationDep);
             this.Name = "PageRechercheLigne";
             this.Text = "Métro de Montréal - Recherche de trajet";
+            this.Load += new System.EventHandler(this.PageRechercheLigne_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

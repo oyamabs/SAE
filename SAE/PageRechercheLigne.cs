@@ -12,9 +12,12 @@ namespace SAE
 {
     public partial class PageRechercheLigne : Form
     {
-        public PageRechercheLigne()
+        private bool isAdmin = false;
+        public PageRechercheLigne(bool isAdmin)
         {
             InitializeComponent();
+
+            this.isAdmin = isAdmin;
         }
 
         private void comboSatationsFavorites_SelectedIndexChanged(object sender, EventArgs e)
@@ -23,6 +26,18 @@ namespace SAE
             {
                 MessageBox.Show("A faire après");
             }
+        }
+
+        private void lblAdminPanel_Click(object sender, EventArgs e)
+        {
+            PagePanneauAdministration form = new PagePanneauAdministration();
+            form.ShowDialog();
+        }
+
+        private void PageRechercheLigne_Load(object sender, EventArgs e)
+        {
+            if (!isAdmin)
+                lblAdminPanel.Enabled = false;
         }
     }
 }
