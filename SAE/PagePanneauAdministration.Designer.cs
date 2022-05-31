@@ -101,6 +101,8 @@
             this.txtTerminus1.Size = new System.Drawing.Size(440, 22);
             this.txtTerminus1.TabIndex = 0;
             this.txtTerminus1.Text = "Saisir terminus 1";
+            this.txtTerminus1.Enter += new System.EventHandler(this.txtTerminus1_Enter);
+            this.txtTerminus1.Leave += new System.EventHandler(this.txtTerminus1_Leave);
             // 
             // tabModifLigne
             // 
@@ -156,6 +158,8 @@
             this.txtTerminus2.Size = new System.Drawing.Size(441, 22);
             this.txtTerminus2.TabIndex = 2;
             this.txtTerminus2.Text = "Saisir terminus 2";
+            this.txtTerminus2.Enter += new System.EventHandler(this.txtTerminus2_Enter);
+            this.txtTerminus2.Leave += new System.EventHandler(this.txtTerminus2_Leave);
             // 
             // lblAjoutStation
             // 

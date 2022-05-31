@@ -17,5 +17,42 @@ namespace SAE
             InitializeComponent();
         }
 
+        // début gestion des textbox
+        private void txtTerminus1_Enter(object sender, EventArgs e)
+        {
+            if (txtTerminus1.Text == "Saisir terminus 1" && txtTerminus1.ForeColor == Color.Gray)
+            {
+                txtTerminus1.Text = "";
+                txtTerminus1.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtTerminus1_Leave(object sender, EventArgs e)
+        {
+            if (txtTerminus1.Text == "" && txtTerminus1.ForeColor == Color.Black)
+            {
+                txtTerminus1.Text = "Saisir terminus 1";
+                txtTerminus1.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtTerminus2_Enter(object sender, EventArgs e)
+        {
+            if (txtTerminus2.Text == "Saisir terminus 2" && txtTerminus2.ForeColor == Color.Gray)
+            {
+                txtTerminus2.Text = "";
+                txtTerminus2.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtTerminus2_Leave(object sender, EventArgs e)
+        {
+            if (txtTerminus2.Text == "" && txtTerminus2.ForeColor == Color.Black)
+            {
+                txtTerminus2.Text = "Saisir terminus 2";
+                txtTerminus2.ForeColor = Color.Gray;
+            }
+        }
+        // fin gestion des textbox
     }
 }
