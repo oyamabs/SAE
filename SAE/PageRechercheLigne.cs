@@ -20,6 +20,7 @@ namespace SAE
             this.isAdmin = isAdmin;
         }
 
+        // gestion stations favorites
         private void comboSatationsFavorites_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboSatationsFavoritesDep.SelectedIndex == (comboSatationsFavoritesDep.Items.Count-1))
@@ -40,6 +41,7 @@ namespace SAE
                 lblAdminPanel.Enabled = false;
         }
 
+        // gestion des textbox pour éviter de faire des labels partout
         private void txtStationDep_Enter(object sender, EventArgs e)
         {
             if (txtStationDep.Text == "Saisir une station de départ" && txtStationDep.ForeColor == Color.Gray)
@@ -75,5 +77,6 @@ namespace SAE
                 txtStationArr.ForeColor = Color.Gray;
             }
         }
+        // fin gestion des textbox
     }
 }
