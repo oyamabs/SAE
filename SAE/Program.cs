@@ -16,7 +16,7 @@ namespace SAE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PageRechercheLigne(true));
+            Application.Run(new PagePanneauAdministration());
         }
     }
 }
