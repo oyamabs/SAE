@@ -12,6 +12,7 @@ namespace SAE
 {
     public partial class PageConnexion : Form
     {
+        // a changer plus tard
         private string sample_username = "admin";
         private string sample_password = "root";
         public PageConnexion()
@@ -19,6 +20,7 @@ namespace SAE
             InitializeComponent();
         }
         
+        // gestion textbox pour éviter de faire des labels partout
         private void txtUsername_Enter(object sender, EventArgs e)
         {
             if (txtUsername.Text == "Nom d'Utilisateur" && txtUsername.ForeColor == Color.Gray)
@@ -54,7 +56,10 @@ namespace SAE
                 txtPassword.ForeColor = Color.Gray;
             }
         }
+        // fin gestion labels
 
+
+        // apparition du formulaire de recherche de ligne en fonction de la connexion (admin / invité)
         private void cmdConnexionAdmin_Click(object sender, EventArgs e)
         {
             if (txtPassword.Text == sample_password && txtUsername.Text == sample_username)
