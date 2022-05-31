@@ -55,6 +55,8 @@
             this.txtStationDep.Size = new System.Drawing.Size(377, 22);
             this.txtStationDep.TabIndex = 0;
             this.txtStationDep.Text = "Saisir une station de départ";
+            this.txtStationDep.Enter += new System.EventHandler(this.txtStationDep_Enter);
+            this.txtStationDep.Leave += new System.EventHandler(this.txtStationDep_Leave);
             // 
             // lblStationsFavoritesDe
             // 
@@ -160,7 +162,9 @@
             this.txtStationArr.Name = "txtStationArr";
             this.txtStationArr.Size = new System.Drawing.Size(377, 22);
             this.txtStationArr.TabIndex = 7;
-            this.txtStationArr.Text = "Saisir une station de arrivée";
+            this.txtStationArr.Text = "Saisir une station d\'arrivée";
+            this.txtStationArr.Enter += new System.EventHandler(this.txtStationArr_Enter);
+            this.txtStationArr.Leave += new System.EventHandler(this.txtStationArr_Leave);
             // 
             // lblAdminPanel
             // 

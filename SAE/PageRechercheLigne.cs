@@ -39,5 +39,41 @@ namespace SAE
             if (!isAdmin)
                 lblAdminPanel.Enabled = false;
         }
+
+        private void txtStationDep_Enter(object sender, EventArgs e)
+        {
+            if (txtStationDep.Text == "Saisir une station de départ" && txtStationDep.ForeColor == Color.Gray)
+            {
+                txtStationDep.Text = "";
+                txtStationDep.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtStationDep_Leave(object sender, EventArgs e)
+        {
+            if (txtStationDep.Text == "" && txtStationDep.ForeColor == Color.Black)
+            {
+                txtStationDep.Text = "Saisir une station de départ";
+                txtStationDep.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtStationArr_Enter(object sender, EventArgs e)
+        {
+            if (txtStationArr.Text == "Saisir une station d'arrivée" && txtStationArr.ForeColor == Color.Gray)
+            {
+                txtStationArr.Text = "";
+                txtStationArr.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtStationArr_Leave(object sender, EventArgs e)
+        {
+            if (txtStationArr.Text == "" && txtStationArr.ForeColor == Color.Black)
+            {
+                txtStationArr.Text = "Saisir une station d'arrivée";
+                txtStationArr.ForeColor = Color.Gray;
+            }
+        }
     }
 }
