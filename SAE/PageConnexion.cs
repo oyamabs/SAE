@@ -59,13 +59,19 @@ namespace SAE
         {
             if (txtPassword.Text == sample_password && txtUsername.Text == sample_username)
             {
-                PageRechercheLigne form = new PageRechercheLigne();
+                PageRechercheLigne form = new PageRechercheLigne(true);
                 form.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Identifiants incorrects!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cmdInvite_Click(object sender, EventArgs e)
+        {
+            PageRechercheLigne form = new PageRechercheLigne(false);
+            form.ShowDialog();
         }
     }
 }

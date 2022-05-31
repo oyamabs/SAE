@@ -32,12 +32,13 @@
             this.cmdConnexionAdmin = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.cmdInvite = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblConnexion
             // 
             this.lblConnexion.AutoSize = true;
-            this.lblConnexion.Location = new System.Drawing.Point(232, 109);
+            this.lblConnexion.Location = new System.Drawing.Point(232, 137);
             this.lblConnexion.Name = "lblConnexion";
             this.lblConnexion.Size = new System.Drawing.Size(270, 16);
             this.lblConnexion.TabIndex = 0;
@@ -45,7 +46,7 @@
             // 
             // cmdConnexionAdmin
             // 
-            this.cmdConnexionAdmin.Location = new System.Drawing.Point(235, 215);
+            this.cmdConnexionAdmin.Location = new System.Drawing.Point(235, 243);
             this.cmdConnexionAdmin.Name = "cmdConnexionAdmin";
             this.cmdConnexionAdmin.Size = new System.Drawing.Size(267, 23);
             this.cmdConnexionAdmin.TabIndex = 3;
@@ -56,7 +57,7 @@
             // txtUsername
             // 
             this.txtUsername.ForeColor = System.Drawing.Color.Gray;
-            this.txtUsername.Location = new System.Drawing.Point(234, 159);
+            this.txtUsername.Location = new System.Drawing.Point(234, 187);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(267, 22);
             this.txtUsername.TabIndex = 1;
@@ -67,7 +68,7 @@
             // txtPassword
             // 
             this.txtPassword.ForeColor = System.Drawing.Color.Gray;
-            this.txtPassword.Location = new System.Drawing.Point(234, 187);
+            this.txtPassword.Location = new System.Drawing.Point(234, 215);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(267, 22);
             this.txtPassword.TabIndex = 2;
@@ -76,11 +77,22 @@
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
+            // cmdInvite
+            // 
+            this.cmdInvite.Location = new System.Drawing.Point(235, 272);
+            this.cmdInvite.Name = "cmdInvite";
+            this.cmdInvite.Size = new System.Drawing.Size(267, 23);
+            this.cmdInvite.TabIndex = 4;
+            this.cmdInvite.Text = "Connexion en tant qu\'invité";
+            this.cmdInvite.UseVisualStyleBackColor = true;
+            this.cmdInvite.Click += new System.EventHandler(this.cmdInvite_Click);
+            // 
             // PageConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 432);
+            this.Controls.Add(this.cmdInvite);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.cmdConnexionAdmin);
@@ -98,6 +110,7 @@
         private System.Windows.Forms.Button cmdConnexionAdmin;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button cmdInvite;
     }
 }
 
