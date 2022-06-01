@@ -17,42 +17,109 @@ namespace SAE
             InitializeComponent();
         }
 
-        // début gestion des textbox
-        private void txtTerminus1_Enter(object sender, EventArgs e)
+        private void textBoxEnter(object sender, EventArgs e)
         {
-            if (txtTerminus1.Text == "Saisir terminus 1" && txtTerminus1.ForeColor == Color.Gray)
+            TextBox txt = (TextBox)sender;
+            
+            switch (txt.Name)
             {
-                txtTerminus1.Text = "";
-                txtTerminus1.ForeColor = Color.Black;
+                case "txtTerminus1Ajout":
+                    if (txtTerminus1Ajout.Text == "Saisir terminus 1" && txtTerminus1Ajout.ForeColor == Color.Gray)
+                    {
+                        txtTerminus1Ajout.Text = "";
+                        txtTerminus1Ajout.ForeColor = Color.Black;
+                    }
+                    break;
+
+                case "txtTerminus2Ajout":
+                    if (txtTerminus2Ajout.Text == "Saisir terminus 2" && txtTerminus2Ajout.ForeColor == Color.Gray)
+                    {
+                        txtTerminus2Ajout.Text = "";
+                        txtTerminus2Ajout.ForeColor = Color.Black;
+                    }
+                    break;
+
+                case "txtTerminus1Modif":
+                    if (txtTerminus1Modif.Text == "Saisir terminus 1" && txtTerminus1Modif.ForeColor == Color.Gray)
+                    {
+                        txtTerminus1Modif.Text = "";
+                        txtTerminus1Modif.ForeColor = Color.Black;
+                    }
+                    break;
+                case "txtTerminus2Modif":
+                    if (txtTerminus2Modif.Text == "Saisir terminus 2" && txtTerminus2Modif.ForeColor == Color.Gray)
+                    {
+                        txtTerminus2Modif.Text = "";
+                        txtTerminus2Modif.ForeColor = Color.Black;
+                    }
+                    break;
+                case "txtAjoutStation":
+                    if (txtAjoutStation.Text == "Saisir le nom de la station" && txtAjoutStation.ForeColor == Color.Gray)
+                    {
+                        txtAjoutStation.Text = "";
+                        txtAjoutStation.ForeColor = Color.Black;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
 
-        private void txtTerminus1_Leave(object sender, EventArgs e)
+        private void textBoxLeave(object sender, EventArgs e)
         {
-            if (txtTerminus1.Text == "" && txtTerminus1.ForeColor == Color.Black)
+            TextBox txt = (TextBox)sender;
+
+            switch (txt.Name)
             {
-                txtTerminus1.Text = "Saisir terminus 1";
-                txtTerminus1.ForeColor = Color.Gray;
+                case "txtTerminus1Ajout":
+                    if (txtTerminus1Ajout.Text == "" && txtTerminus1Ajout.ForeColor == Color.Black)
+                    {
+                        txtTerminus1Ajout.Text = "Saisir terminus 1";
+                        txtTerminus1Ajout.ForeColor = Color.Gray;
+                    }
+                    break;
+
+                case "txtTerminal2Ajout":
+                    if (txtTerminus2Ajout.Text == "" && txtTerminus2Ajout.ForeColor == Color.Black)
+                    {
+                        txtTerminus2Ajout.Text = "Saisir terminus 2";
+                        txtTerminus2Ajout.ForeColor = Color.Gray;
+                    }
+                    break;
+                case "txtTerminus1Modif":
+                    if (txtTerminus1Modif.Text == "" && txtTerminus1Modif.ForeColor == Color.Black)
+                    {
+                        txtTerminus1Modif.Text = "Saisir terminus 1";
+                        txtTerminus1Modif.ForeColor = Color.Gray;
+                    }
+                    break;
+                case "txtTerminus2Modif":
+                    if (txtTerminus2Modif.Text == "" && txtTerminus2Modif.ForeColor == Color.Black)
+                    {
+                        txtTerminus2Modif.Text = "Saisir terminus 2";
+                        txtTerminus2Modif.ForeColor = Color.Gray;
+                    }
+                    break;
+                case "txtAjoutStation":
+                    if (txtAjoutStation.Text == "" && txtAjoutStation.ForeColor == Color.Black)
+                    {
+                        txtAjoutStation.Text = "Saisir le nom de la station";
+                        txtAjoutStation.ForeColor = Color.Gray;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
 
-        private void txtTerminus2_Enter(object sender, EventArgs e)
+        private void chkConfirmSupprLigne_CheckedChanged(object sender, EventArgs e)
         {
-            if (txtTerminus2.Text == "Saisir terminus 2" && txtTerminus2.ForeColor == Color.Gray)
-            {
-                txtTerminus2.Text = "";
-                txtTerminus2.ForeColor = Color.Black;
-            }
+            cmdSupprLigne.Enabled = chkConfirmSupprLigne.Checked; // changer automatiquement l'activation du bouton en fonction de l'état de la checkbox
         }
 
-        private void txtTerminus2_Leave(object sender, EventArgs e)
+        private void chkConfirmStationSuppr_CheckedChanged(object sender, EventArgs e)
         {
-            if (txtTerminus2.Text == "" && txtTerminus2.ForeColor == Color.Black)
-            {
-                txtTerminus2.Text = "Saisir terminus 2";
-                txtTerminus2.ForeColor = Color.Gray;
-            }
+            cmdSupprStation.Enabled = chkConfirmStationSuppr.Checked;
         }
-        // fin gestion des textbox
     }
 }
