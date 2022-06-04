@@ -9,7 +9,7 @@ namespace BD
 
         private static bool initConnection()
         {
-            string server = "10.1.139.235";
+            string server = "10.1.139.236";
             string login = "d1";
             string password = "mdp";
             string DB = "based1";
@@ -45,6 +45,37 @@ namespace BD
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Chercher toutes les stations de la BDD
+        /// </summary>
+        /// <returns>la liste des stations</returns>
+        /// <exception cref="Exception">En cas de table vide</exception>
+        public static List<Station> getStations()
+        {
+            List<Station> stations = new List<Station>();
+
+            string query = "SELECT * FROM gare;";
+
+            MySqlCommand cmd = new MySqlCommand(query, conn); // initialisation d'une commande SQL
+
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows) // on vérifie qu'il y a bien des données dans la table
+                {
+                    while (reader.Read())
+                    {
+                        stations.Add(new Station(reader.GetInt32(0), reader.GetString(1), reader.GetBoolean(2), reader.GetBoolean(3))); // on ajoute les stations dans la liste
+                    }
+                } 
+                else
+                {
+                    throw new Exception("No stations were found");
+                }
+            }
+
+            return stations;
         }
     }
 }
