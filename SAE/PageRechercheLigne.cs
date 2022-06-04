@@ -84,39 +84,49 @@ namespace SAE
         }
 
         // gestion des textbox pour éviter de faire des labels partout
-        private void txtStationDep_Enter(object sender, EventArgs e)
+        private void textBoxEnter(object sender, EventArgs e)
         {
-            if (txtStationDep.Text == "Saisir une station de départ" && txtStationDep.ForeColor == Color.Gray)
+            TextBox txt = (TextBox)sender;
+
+            switch(txt.Name)
             {
-                txtStationDep.Text = "";
-                txtStationDep.ForeColor = Color.Black;
+                case "txtStationDep":
+                    if (txtStationDep.Text == "Saisir une station de départ" && txtStationDep.ForeColor == Color.Gray)
+                    {
+                        txtStationDep.Text = "";
+                        txtStationDep.ForeColor = Color.Black;
+                    }
+                    break;
+                case "txtStationArr":
+                    if (txtStationArr.Text == "Saisir une station d'arrivée" && txtStationArr.ForeColor == Color.Gray)
+                    {
+                        txtStationArr.Text = "";
+                        txtStationArr.ForeColor = Color.Black;
+                    }
+                    break;
             }
         }
 
-        private void txtStationDep_Leave(object sender, EventArgs e)
+        public void textBoxLeave(object sender, EventArgs e)
         {
-            if (txtStationDep.Text == "" && txtStationDep.ForeColor == Color.Black)
-            {
-                txtStationDep.Text = "Saisir une station de départ";
-                txtStationDep.ForeColor = Color.Gray;
-            }
-        }
+            TextBox txt = (TextBox)sender;
 
-        private void txtStationArr_Enter(object sender, EventArgs e)
-        {
-            if (txtStationArr.Text == "Saisir une station d'arrivée" && txtStationArr.ForeColor == Color.Gray)
+            switch (txt.Name)
             {
-                txtStationArr.Text = "";
-                txtStationArr.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtStationArr_Leave(object sender, EventArgs e)
-        {
-            if (txtStationArr.Text == "" && txtStationArr.ForeColor == Color.Black)
-            {
-                txtStationArr.Text = "Saisir une station d'arrivée";
-                txtStationArr.ForeColor = Color.Gray;
+                case "txtStationDep":
+                    if (txtStationDep.Text == "" && txtStationDep.ForeColor == Color.Black)
+                    {
+                        txtStationDep.Text = "Saisir une station de départ";
+                        txtStationDep.ForeColor = Color.Gray;
+                    }
+                    break;
+                case "txtStationArr":
+                    if (txtStationArr.Text == "" && txtStationArr.ForeColor == Color.Black)
+                    {
+                        txtStationArr.Text = "Saisir une station d'arrivée";
+                        txtStationArr.ForeColor = Color.Gray;
+                    }
+                    break;
             }
         }
 
@@ -135,6 +145,7 @@ namespace SAE
                 searchResults(true, txtStationDep.Text);
 
         }
+
         // fin gestion des textbox
     }
 }
