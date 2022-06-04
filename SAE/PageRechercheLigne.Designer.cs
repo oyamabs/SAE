@@ -56,6 +56,7 @@
             this.txtStationDep.TabIndex = 0;
             this.txtStationDep.Text = "Saisir une station de départ";
             this.txtStationDep.Enter += new System.EventHandler(this.txtStationDep_Enter);
+            this.txtStationDep.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtStationDep_KeyDown);
             this.txtStationDep.Leave += new System.EventHandler(this.txtStationDep_Leave);
             // 
             // lblStationsFavoritesDe
@@ -87,6 +88,7 @@
             this.listResultatsDep.Name = "listResultatsDep";
             this.listResultatsDep.Size = new System.Drawing.Size(374, 116);
             this.listResultatsDep.TabIndex = 4;
+            this.listResultatsDep.SelectedIndexChanged += new System.EventHandler(this.listResultatsDep_SelectedIndexChanged);
             // 
             // lblResultatsDep
             // 
