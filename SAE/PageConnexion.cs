@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BD;
 
 namespace SAE
 {
@@ -77,6 +73,15 @@ namespace SAE
         {
             PageRechercheLigne form = new PageRechercheLigne(false);
             form.ShowDialog();
+        }
+
+        private void PageConnexion_Load(object sender, EventArgs e)
+        {
+            List<Station> list = new List<Station>();
+            list = getStations();
+
+            foreach (Station stat in list)
+                Console.WriteLine(stat.ToString());
         }
     }
 }

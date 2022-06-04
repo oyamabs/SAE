@@ -38,17 +38,19 @@
             // lblConnexion
             // 
             this.lblConnexion.AutoSize = true;
-            this.lblConnexion.Location = new System.Drawing.Point(232, 137);
+            this.lblConnexion.Location = new System.Drawing.Point(174, 111);
+            this.lblConnexion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConnexion.Name = "lblConnexion";
-            this.lblConnexion.Size = new System.Drawing.Size(270, 16);
+            this.lblConnexion.Size = new System.Drawing.Size(219, 13);
             this.lblConnexion.TabIndex = 0;
             this.lblConnexion.Text = "Connexion en tant qu\'Administrateur ou invité";
             // 
             // cmdConnexionAdmin
             // 
-            this.cmdConnexionAdmin.Location = new System.Drawing.Point(235, 243);
+            this.cmdConnexionAdmin.Location = new System.Drawing.Point(176, 197);
+            this.cmdConnexionAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmdConnexionAdmin.Name = "cmdConnexionAdmin";
-            this.cmdConnexionAdmin.Size = new System.Drawing.Size(267, 23);
+            this.cmdConnexionAdmin.Size = new System.Drawing.Size(200, 19);
             this.cmdConnexionAdmin.TabIndex = 3;
             this.cmdConnexionAdmin.Text = "Connexion";
             this.cmdConnexionAdmin.UseVisualStyleBackColor = true;
@@ -57,9 +59,10 @@
             // txtUsername
             // 
             this.txtUsername.ForeColor = System.Drawing.Color.Gray;
-            this.txtUsername.Location = new System.Drawing.Point(234, 187);
+            this.txtUsername.Location = new System.Drawing.Point(176, 152);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(267, 22);
+            this.txtUsername.Size = new System.Drawing.Size(201, 20);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "Nom d\'Utilisateur";
             this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
@@ -68,9 +71,10 @@
             // txtPassword
             // 
             this.txtPassword.ForeColor = System.Drawing.Color.Gray;
-            this.txtPassword.Location = new System.Drawing.Point(234, 215);
+            this.txtPassword.Location = new System.Drawing.Point(176, 175);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(267, 22);
+            this.txtPassword.Size = new System.Drawing.Size(201, 20);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "Mot de passe";
             this.txtPassword.UseSystemPasswordChar = true;
@@ -79,9 +83,10 @@
             // 
             // cmdInvite
             // 
-            this.cmdInvite.Location = new System.Drawing.Point(235, 272);
+            this.cmdInvite.Location = new System.Drawing.Point(176, 221);
+            this.cmdInvite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmdInvite.Name = "cmdInvite";
-            this.cmdInvite.Size = new System.Drawing.Size(267, 23);
+            this.cmdInvite.Size = new System.Drawing.Size(200, 19);
             this.cmdInvite.TabIndex = 4;
             this.cmdInvite.Text = "Connexion en tant qu\'invité";
             this.cmdInvite.UseVisualStyleBackColor = true;
@@ -89,16 +94,18 @@
             // 
             // PageConnexion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 432);
+            this.ClientSize = new System.Drawing.Size(549, 351);
             this.Controls.Add(this.cmdInvite);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.cmdConnexionAdmin);
             this.Controls.Add(this.lblConnexion);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "PageConnexion";
             this.Text = "Metro de Montréal - Connexion";
+            this.Load += new System.EventHandler(this.PageConnexion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
