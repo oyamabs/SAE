@@ -142,19 +142,14 @@ namespace SAE
             }
         }
 
-        private void txtStationDep_KeyDown(object sender, KeyEventArgs e)
+        private void recherche(object sender, KeyEventArgs e)
         {
+            TextBox textBox = (TextBox)sender;
+
             if (e.KeyCode == Keys.Enter)
-                searchResults(true, txtStationDep.Text);
-
+            {
+                searchResults((textBox.Name == "txtStationDep") ? true : false, textBox.Text);
+            }
         }
-
-        private void txtStationArr_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                searchResults(false, txtStationArr.Text);
-        }
-
-        // fin gestion des textbox
     }
 }

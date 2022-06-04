@@ -56,7 +56,7 @@
             this.txtStationDep.TabIndex = 0;
             this.txtStationDep.Text = "Saisir une station de départ";
             this.txtStationDep.Enter += new System.EventHandler(this.textBoxEnter);
-            this.txtStationDep.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtStationDep_KeyDown);
+            this.txtStationDep.KeyDown += new System.Windows.Forms.KeyEventHandler(this.recherche);
             this.txtStationDep.Leave += new System.EventHandler(this.textBoxLeave);
             // 
             // lblStationsFavoritesDe
@@ -166,7 +166,7 @@
             this.txtStationArr.TabIndex = 7;
             this.txtStationArr.Text = "Saisir une station d\'arrivée";
             this.txtStationArr.Enter += new System.EventHandler(this.textBoxEnter);
-            this.txtStationArr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtStationArr_KeyDown);
+            this.txtStationArr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.recherche);
             this.txtStationArr.Leave += new System.EventHandler(this.textBoxLeave);
             // 
             // lblAdminPanel
