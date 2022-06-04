@@ -102,7 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BD\BD.csproj">
-      <Project>{fa68426c-6458-4f4a-b2a7-77088f3854d8}</Project>
+      <Project>{be9a5961-747f-44fb-b67d-b9c3196b9461}</Project>
       <Name>BD</Name>
     </ProjectReference>
   </ItemGroup>

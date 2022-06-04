@@ -74,14 +74,5 @@ namespace SAE
             PageRechercheLigne form = new PageRechercheLigne(false);
             form.ShowDialog();
         }
-
-        private void PageConnexion_Load(object sender, EventArgs e)
-        {
-            List<Station> list = new List<Station>();
-            list = getStations();
-
-            foreach (Station stat in list)
-                Console.WriteLine(stat.ToString());
-        }
     }
 }
