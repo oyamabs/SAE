@@ -8,11 +8,10 @@ namespace BD
 {
     public class Station
     {
-        private int stationId { get; set; }
-        private string stationName { get; set; }
-        private bool hasElevator { get; set; }
-        private bool hasParking { get; set; }
-
+        public int stationId { get; private set; }
+        public string stationName { get; private set; }
+        public  bool hasElevator { get; private set; }
+        public bool hasParking { get; private set; }
         public Station(int stationId, string stationName, bool hasElevator, bool hasParking)
         {
             this.stationId = stationId;

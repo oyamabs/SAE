@@ -1,5 +1,7 @@
 ﻿using MySql.Data;
 using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 
 namespace BD
 {
@@ -7,7 +9,7 @@ namespace BD
     {
         private static MySqlConnection conn;
 
-        private static bool initConnection()
+        public static bool initConnection()
         {
             string server = "10.1.139.236";
             string login = "d1";
@@ -68,7 +70,7 @@ namespace BD
                     {
                         stations.Add(new Station(reader.GetInt32(0), reader.GetString(1), reader.GetBoolean(2), reader.GetBoolean(3))); // on ajoute les stations dans la liste
                     }
-                } 
+                }
                 else
                 {
                     throw new Exception("No stations were found");
