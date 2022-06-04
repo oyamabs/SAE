@@ -166,6 +166,7 @@
             this.txtStationArr.TabIndex = 7;
             this.txtStationArr.Text = "Saisir une station d\'arrivée";
             this.txtStationArr.Enter += new System.EventHandler(this.textBoxEnter);
+            this.txtStationArr.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtStationArr_KeyDown);
             this.txtStationArr.Leave += new System.EventHandler(this.textBoxLeave);
             // 
             // lblAdminPanel

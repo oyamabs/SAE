@@ -79,7 +79,10 @@ namespace SAE
             stations = BD.BD.getStations();
 
             foreach (Station station in stations)
+            {
                 listResultatsDep.Items.Add(station.stationName);
+                listResultatsArr.Items.Add(station.stationName);
+            }
             
         }
 
@@ -144,6 +147,12 @@ namespace SAE
             if (e.KeyCode == Keys.Enter)
                 searchResults(true, txtStationDep.Text);
 
+        }
+
+        private void txtStationArr_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                searchResults(false, txtStationArr.Text);
         }
 
         // fin gestion des textbox
