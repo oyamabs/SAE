@@ -62,20 +62,28 @@ namespace BD
 
             MySqlCommand cmd = new MySqlCommand(query, conn); // initialisation d'une commande SQL
 
-            using (MySqlDataReader reader = cmd.ExecuteReader())
+            try
             {
-                if (reader.HasRows) // on vérifie qu'il y a bien des données dans la table
+                using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.HasRows) // on vérifie qu'il y a bien des données dans la table
                     {
-                        stations.Add(new Station(reader.GetInt32(0), reader.GetString(1), reader.GetBoolean(2), reader.GetBoolean(3))); // on ajoute les stations dans la liste
+                        while (reader.Read())
+                        {
+                            stations.Add(new Station(reader.GetInt32(0), reader.GetString(1), reader.GetBoolean(2), reader.GetBoolean(3))); // on ajoute les stations dans la liste
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("No stations were found");
                     }
                 }
-                else
-                {
-                    throw new Exception("No stations were found");
-                }
             }
+            catch
+            {
+                stations.Add(new Station(0, "Erreur de lecture de la base de données", false, false));
+            }
+            
 
             return stations;
         }
