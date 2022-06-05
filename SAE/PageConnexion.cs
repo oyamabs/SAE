@@ -17,40 +17,70 @@ namespace SAE
         }
         
         // gestion textbox pour éviter de faire des labels partout
+        private void textBoxEnter(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            switch (textBox.Name)
+            {
+                case "txtUsername":
+                    if (txtUsername.Text == "Nom d'Utilisateur" && txtUsername.ForeColor == Color.Gray)
+                    {
+                        txtUsername.ForeColor = Color.Black;
+                        txtUsername.Text = "";
+                    }
+                    break;
+                case "txtPassword":
+                    if (txtPassword.Text == "Mot de passe" && txtPassword.ForeColor == Color.Gray)
+                    {
+                        txtPassword.Text = "";
+                        txtPassword.ForeColor = Color.Black;
+                    }
+                    break;
+            }
+        }
+
+        private void textBoxLeave(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            switch (textBox.Name)
+            {
+                case "txtUsername":
+                    if (txtUsername.Text == "" && txtUsername.ForeColor == Color.Black)
+                    {
+                        txtUsername.ForeColor = Color.Gray;
+                        txtUsername.Text = "Nom d'Utilisateur";
+                    }
+                    break;
+                case "txtPassword":
+                    if (txtPassword.Text == "" && txtPassword.ForeColor == Color.Black)
+                    {
+                        txtPassword.Text = "Mot de passe";
+                        txtPassword.ForeColor = Color.Gray;
+                    }
+                    break;
+            }
+        }
+
         private void txtUsername_Enter(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "Nom d'Utilisateur" && txtUsername.ForeColor == Color.Gray)
-            {
-                txtUsername.ForeColor = Color.Black;
-                txtUsername.Text = "";
-            }
+
         }
 
         private void txtUsername_Leave(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "" && txtUsername.ForeColor == Color.Black)
-            {
-                txtUsername.ForeColor = Color.Gray;
-                txtUsername.Text = "Nom d'Utilisateur";
-            }
+
         }
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
-            if (txtPassword.Text == "Mot de passe" && txtPassword.ForeColor == Color.Gray)
-            {
-                txtPassword.Text = "";
-                txtPassword.ForeColor = Color.Black;
-            }
+
         }
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
-            if (txtPassword.Text == "" && txtPassword.ForeColor == Color.Black)
-            {
-                txtPassword.Text = "Mot de passe";
-                txtPassword.ForeColor = Color.Gray;
-            }
+
         }
         // fin gestion labels
 
