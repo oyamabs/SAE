@@ -87,5 +87,39 @@ namespace BD
 
             return stations;
         }
+
+        public static void addStation(Station station)
+        {
+            int hasElevator = station.hasElevator ? 1 : 0;
+            int hasParking = station.hasParking ? 1 : 0;
+
+            string query = $"INSERT INTO gare(nom_gare, ascenseur, stationnement) VALUES (\"{station.stationName}\", {hasElevator}, {hasParking});";
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+        }
+
+        public static void updateStation(int id, bool hasElevator, bool hasParking)
+        {
+            int _hasElevator = hasElevator ? 1 : 0;
+            int _hasParking = hasParking ? 1 : 0;
+
+            string query = $"UPDATE gare SET ascenseur = {_hasElevator}, stationnement = {_hasParking} WHERE num_gare = {id};";
+
+            MySqlCommand sql = new MySqlCommand(query, conn);
+
+            MySqlDataReader reader = sql.ExecuteReader();
+        }
+
+        public static void deleteStation(int id)
+        {
+            string query = $"DELETE FROM gare WHERE num_gare = {id};";
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+        }
     }
 }

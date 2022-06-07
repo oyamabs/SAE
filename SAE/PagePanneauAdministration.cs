@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BD;
 
 namespace SAE
 {
     public partial class PagePanneauAdministration : Form
     {
+        private int selectedStationChange = -1;
+        private int selectedStationSuppr = -1;
         public PagePanneauAdministration()
         {
             InitializeComponent();
@@ -120,6 +123,80 @@ namespace SAE
         private void chkConfirmStationSuppr_CheckedChanged(object sender, EventArgs e)
         {
             cmdSupprStation.Enabled = chkConfirmStationSuppr.Checked;
+        }
+
+        private void cmdAjoutStation_Click(object sender, EventArgs e)
+        {
+            if (txtAjoutStation.Text == "Saisir le nom de la station" && txtAjoutStation.ForeColor == Color.Gray)
+            {
+                MessageBox.Show("Veuillez entrer le nom de la station", "Erreur!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            BD.BD.addStation(new Station(0, txtAjoutStation.Text, chkAscenceurAjout.Checked, chkStationnementAjout.Checked));
+        }
+
+        private void PagePanneauAdministration_Load(object sender, EventArgs e)
+        {
+            List<Station> stations = BD.BD.getStations();
+
+            foreach (Station station in stations)
+            {
+                comboSelectStationModif.Items.Add(station.stationName);
+                comboSelectStationSuppr.Items.Add(station.stationName);
+            }
+        }
+
+        private void comboSelectStationModif_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Station> stations = BD.BD.getStations();
+
+            foreach (Station station in stations)
+            {
+                if (station.stationName == comboSelectStationModif.SelectedItem.ToString())
+                {
+                    chkAscenceurModif.Checked = station.hasElevator;
+                    chkStationnementModif.Checked = station.hasParking;
+
+                    selectedStationChange = station.stationId;
+                }
+            }
+        }
+
+        private void cmdModifStation_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BD.BD.updateStation(selectedStationChange, chkAscenceurModif.Checked, chkStationnementModif.Checked);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erreur, sélectionnez une station");
+            }
+        }
+
+        private void comboSelectStationSuppr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Station> stations = BD.BD.getStations();
+            
+            foreach (Station station in stations)
+            {
+                if (station.stationName == comboSelectStationSuppr.Text)
+                    selectedStationSuppr = station.stationId;
+
+            }
+        }
+
+        private void cmdSupprStation_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BD.BD.deleteStation(selectedStationSuppr);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Selectionnez une station");
+            }
         }
     }
 }

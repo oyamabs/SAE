@@ -62,14 +62,14 @@
             this.chkStationnementAjout = new System.Windows.Forms.CheckBox();
             this.txtAjoutStation = new System.Windows.Forms.TextBox();
             this.tabModifStation = new System.Windows.Forms.TabPage();
-            this.tabSupprStation = new System.Windows.Forms.TabPage();
-            this.comboSelectStationModif = new System.Windows.Forms.ComboBox();
+            this.cmdModifStation = new System.Windows.Forms.Button();
             this.chkAscenceurModif = new System.Windows.Forms.CheckBox();
             this.chkStationnementModif = new System.Windows.Forms.CheckBox();
-            this.cmdModifStation = new System.Windows.Forms.Button();
-            this.comboSelectStationSuppr = new System.Windows.Forms.ComboBox();
-            this.chkConfirmStationSuppr = new System.Windows.Forms.CheckBox();
+            this.comboSelectStationModif = new System.Windows.Forms.ComboBox();
+            this.tabSupprStation = new System.Windows.Forms.TabPage();
             this.cmdSupprStation = new System.Windows.Forms.Button();
+            this.chkConfirmStationSuppr = new System.Windows.Forms.CheckBox();
+            this.comboSelectStationSuppr = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabAjoutLigne.SuspendLayout();
             this.tabModifLigne.SuspendLayout();
@@ -390,6 +390,7 @@
             this.cmdAjoutStation.TabIndex = 3;
             this.cmdAjoutStation.Text = "Ajouter la station";
             this.cmdAjoutStation.UseVisualStyleBackColor = true;
+            this.cmdAjoutStation.Click += new System.EventHandler(this.cmdAjoutStation_Click);
             // 
             // chkAscenceurAjout
             // 
@@ -435,26 +436,15 @@
             this.tabModifStation.Text = "Modifier une station";
             this.tabModifStation.UseVisualStyleBackColor = true;
             // 
-            // tabSupprStation
+            // cmdModifStation
             // 
-            this.tabSupprStation.Controls.Add(this.cmdSupprStation);
-            this.tabSupprStation.Controls.Add(this.chkConfirmStationSuppr);
-            this.tabSupprStation.Controls.Add(this.comboSelectStationSuppr);
-            this.tabSupprStation.Location = new System.Drawing.Point(4, 25);
-            this.tabSupprStation.Name = "tabSupprStation";
-            this.tabSupprStation.Size = new System.Drawing.Size(1026, 393);
-            this.tabSupprStation.TabIndex = 5;
-            this.tabSupprStation.Text = "Supprimer une station";
-            this.tabSupprStation.UseVisualStyleBackColor = true;
-            // 
-            // comboSelectStationModif
-            // 
-            this.comboSelectStationModif.FormattingEnabled = true;
-            this.comboSelectStationModif.Location = new System.Drawing.Point(8, 10);
-            this.comboSelectStationModif.Name = "comboSelectStationModif";
-            this.comboSelectStationModif.Size = new System.Drawing.Size(1011, 24);
-            this.comboSelectStationModif.TabIndex = 0;
-            this.comboSelectStationModif.Text = "--Sélectionner une station--";
+            this.cmdModifStation.Location = new System.Drawing.Point(8, 358);
+            this.cmdModifStation.Name = "cmdModifStation";
+            this.cmdModifStation.Size = new System.Drawing.Size(1011, 23);
+            this.cmdModifStation.TabIndex = 5;
+            this.cmdModifStation.Text = "Modifier la station";
+            this.cmdModifStation.UseVisualStyleBackColor = true;
+            this.cmdModifStation.Click += new System.EventHandler(this.cmdModifStation_Click);
             // 
             // chkAscenceurModif
             // 
@@ -476,23 +466,38 @@
             this.chkStationnementModif.Text = "Stationnement près de la station ?";
             this.chkStationnementModif.UseVisualStyleBackColor = true;
             // 
-            // cmdModifStation
+            // comboSelectStationModif
             // 
-            this.cmdModifStation.Location = new System.Drawing.Point(8, 358);
-            this.cmdModifStation.Name = "cmdModifStation";
-            this.cmdModifStation.Size = new System.Drawing.Size(1011, 23);
-            this.cmdModifStation.TabIndex = 5;
-            this.cmdModifStation.Text = "Modifier la station";
-            this.cmdModifStation.UseVisualStyleBackColor = true;
+            this.comboSelectStationModif.FormattingEnabled = true;
+            this.comboSelectStationModif.Location = new System.Drawing.Point(8, 10);
+            this.comboSelectStationModif.Name = "comboSelectStationModif";
+            this.comboSelectStationModif.Size = new System.Drawing.Size(1011, 24);
+            this.comboSelectStationModif.TabIndex = 0;
+            this.comboSelectStationModif.Text = "--Sélectionner une station--";
+            this.comboSelectStationModif.SelectedIndexChanged += new System.EventHandler(this.comboSelectStationModif_SelectedIndexChanged);
             // 
-            // comboSelectStationSuppr
+            // tabSupprStation
             // 
-            this.comboSelectStationSuppr.FormattingEnabled = true;
-            this.comboSelectStationSuppr.Location = new System.Drawing.Point(8, 3);
-            this.comboSelectStationSuppr.Name = "comboSelectStationSuppr";
-            this.comboSelectStationSuppr.Size = new System.Drawing.Size(1011, 24);
-            this.comboSelectStationSuppr.TabIndex = 1;
-            this.comboSelectStationSuppr.Text = "--Sélectionner une station--";
+            this.tabSupprStation.Controls.Add(this.cmdSupprStation);
+            this.tabSupprStation.Controls.Add(this.chkConfirmStationSuppr);
+            this.tabSupprStation.Controls.Add(this.comboSelectStationSuppr);
+            this.tabSupprStation.Location = new System.Drawing.Point(4, 25);
+            this.tabSupprStation.Name = "tabSupprStation";
+            this.tabSupprStation.Size = new System.Drawing.Size(1026, 393);
+            this.tabSupprStation.TabIndex = 5;
+            this.tabSupprStation.Text = "Supprimer une station";
+            this.tabSupprStation.UseVisualStyleBackColor = true;
+            // 
+            // cmdSupprStation
+            // 
+            this.cmdSupprStation.Enabled = false;
+            this.cmdSupprStation.Location = new System.Drawing.Point(8, 358);
+            this.cmdSupprStation.Name = "cmdSupprStation";
+            this.cmdSupprStation.Size = new System.Drawing.Size(1011, 23);
+            this.cmdSupprStation.TabIndex = 3;
+            this.cmdSupprStation.Text = "Supprimer la station";
+            this.cmdSupprStation.UseVisualStyleBackColor = true;
+            this.cmdSupprStation.Click += new System.EventHandler(this.cmdSupprStation_Click);
             // 
             // chkConfirmStationSuppr
             // 
@@ -505,15 +510,15 @@
             this.chkConfirmStationSuppr.UseVisualStyleBackColor = true;
             this.chkConfirmStationSuppr.CheckedChanged += new System.EventHandler(this.chkConfirmStationSuppr_CheckedChanged);
             // 
-            // cmdSupprStation
+            // comboSelectStationSuppr
             // 
-            this.cmdSupprStation.Enabled = false;
-            this.cmdSupprStation.Location = new System.Drawing.Point(8, 358);
-            this.cmdSupprStation.Name = "cmdSupprStation";
-            this.cmdSupprStation.Size = new System.Drawing.Size(1011, 23);
-            this.cmdSupprStation.TabIndex = 3;
-            this.cmdSupprStation.Text = "Supprimer la station";
-            this.cmdSupprStation.UseVisualStyleBackColor = true;
+            this.comboSelectStationSuppr.FormattingEnabled = true;
+            this.comboSelectStationSuppr.Location = new System.Drawing.Point(8, 3);
+            this.comboSelectStationSuppr.Name = "comboSelectStationSuppr";
+            this.comboSelectStationSuppr.Size = new System.Drawing.Size(1011, 24);
+            this.comboSelectStationSuppr.TabIndex = 1;
+            this.comboSelectStationSuppr.Text = "--Sélectionner une station--";
+            this.comboSelectStationSuppr.SelectedIndexChanged += new System.EventHandler(this.comboSelectStationSuppr_SelectedIndexChanged);
             // 
             // PagePanneauAdministration
             // 
@@ -523,6 +528,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "PagePanneauAdministration";
             this.Text = "Métro de Montréal - Panneau d\'administration";
+            this.Load += new System.EventHandler(this.PagePanneauAdministration_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabAjoutLigne.ResumeLayout(false);
             this.tabAjoutLigne.PerformLayout();
