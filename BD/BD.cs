@@ -121,5 +121,38 @@ namespace BD
             MySqlDataReader reader = cmd.ExecuteReader();
 
         }
+
+        public static List<Line> getLines()
+        {
+            List<Line> lines = new List<Line>();
+
+            string query = "SELECT * FROM ligne;";
+
+            MySqlCommand cmd = new MySqlCommand(query, conn); // initialisation d'une commande SQL
+
+            try
+            {
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows) // on vérifie qu'il y a bien des données dans la table
+                    {
+                        while (reader.Read())
+                        {
+                            lines.Add(new Line(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3))); // on ajoute les stations dans la liste
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("No stations were found");
+                    }
+                }
+            }
+            catch
+            {
+                lines.Add(new Line(0, "Erreur de lecture de la base de données", 0, 0));
+            }
+
+            return lines;
+        }
     }
 }
