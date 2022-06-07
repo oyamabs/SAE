@@ -30,27 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAjoutLigne = new System.Windows.Forms.TabPage();
-            this.listStationsAjout = new System.Windows.Forms.ListBox();
-            this.listResultatsRechercheAjout = new System.Windows.Forms.ListBox();
-            this.lblSeperationVerticale = new System.Windows.Forms.Label();
-            this.lblStationsAjout = new System.Windows.Forms.Label();
-            this.lblRechercheAjout = new System.Windows.Forms.Label();
-            this.txtRechercheStationsAjout = new System.Windows.Forms.TextBox();
-            this.lblAjoutStationAjout = new System.Windows.Forms.Label();
-            this.txtTerminus2Ajout = new System.Windows.Forms.TextBox();
             this.lblFlecheAjout = new System.Windows.Forms.Label();
-            this.txtTerminus1Ajout = new System.Windows.Forms.TextBox();
             this.tabModifLigne = new System.Windows.Forms.TabPage();
-            this.listStationsModif = new System.Windows.Forms.ListBox();
-            this.listResultatsRechecheModif = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblStationsAjouteesModif = new System.Windows.Forms.Label();
-            this.lblResultatsRechercheModif = new System.Windows.Forms.Label();
-            this.txtRechercheStationModif = new System.Windows.Forms.TextBox();
-            this.lblAjoutStationModif = new System.Windows.Forms.Label();
-            this.txtTerminus2Modif = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtTerminus1Modif = new System.Windows.Forms.TextBox();
+            this.cmdModifLigne = new System.Windows.Forms.Button();
             this.comboSelectLigne = new System.Windows.Forms.ComboBox();
             this.tabSupprLigne = new System.Windows.Forms.TabPage();
             this.cmdSupprLigne = new System.Windows.Forms.Button();
@@ -70,6 +52,13 @@
             this.cmdSupprStation = new System.Windows.Forms.Button();
             this.chkConfirmStationSuppr = new System.Windows.Forms.CheckBox();
             this.comboSelectStationSuppr = new System.Windows.Forms.ComboBox();
+            this.txtNomLigneAjout = new System.Windows.Forms.TextBox();
+            this.cmdAjoutLigne = new System.Windows.Forms.Button();
+            this.comboAjoutTerminus1 = new System.Windows.Forms.ComboBox();
+            this.comboAjoutTerminus2 = new System.Windows.Forms.ComboBox();
+            this.comboModifTerminus2 = new System.Windows.Forms.ComboBox();
+            this.comboModifTerminus1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabAjoutLigne.SuspendLayout();
             this.tabModifLigne.SuspendLayout();
@@ -95,16 +84,11 @@
             // 
             // tabAjoutLigne
             // 
-            this.tabAjoutLigne.Controls.Add(this.listStationsAjout);
-            this.tabAjoutLigne.Controls.Add(this.listResultatsRechercheAjout);
-            this.tabAjoutLigne.Controls.Add(this.lblSeperationVerticale);
-            this.tabAjoutLigne.Controls.Add(this.lblStationsAjout);
-            this.tabAjoutLigne.Controls.Add(this.lblRechercheAjout);
-            this.tabAjoutLigne.Controls.Add(this.txtRechercheStationsAjout);
-            this.tabAjoutLigne.Controls.Add(this.lblAjoutStationAjout);
-            this.tabAjoutLigne.Controls.Add(this.txtTerminus2Ajout);
+            this.tabAjoutLigne.Controls.Add(this.comboAjoutTerminus2);
+            this.tabAjoutLigne.Controls.Add(this.comboAjoutTerminus1);
+            this.tabAjoutLigne.Controls.Add(this.cmdAjoutLigne);
+            this.tabAjoutLigne.Controls.Add(this.txtNomLigneAjout);
             this.tabAjoutLigne.Controls.Add(this.lblFlecheAjout);
-            this.tabAjoutLigne.Controls.Add(this.txtTerminus1Ajout);
             this.tabAjoutLigne.Location = new System.Drawing.Point(4, 25);
             this.tabAjoutLigne.Name = "tabAjoutLigne";
             this.tabAjoutLigne.Padding = new System.Windows.Forms.Padding(3);
@@ -113,110 +97,22 @@
             this.tabAjoutLigne.Text = "Ajouter une ligne";
             this.tabAjoutLigne.UseVisualStyleBackColor = true;
             // 
-            // listStationsAjout
-            // 
-            this.listStationsAjout.FormattingEnabled = true;
-            this.listStationsAjout.ItemHeight = 16;
-            this.listStationsAjout.Location = new System.Drawing.Point(520, 178);
-            this.listStationsAjout.Name = "listStationsAjout";
-            this.listStationsAjout.Size = new System.Drawing.Size(495, 196);
-            this.listStationsAjout.TabIndex = 19;
-            // 
-            // listResultatsRechercheAjout
-            // 
-            this.listResultatsRechercheAjout.FormattingEnabled = true;
-            this.listResultatsRechercheAjout.ItemHeight = 16;
-            this.listResultatsRechercheAjout.Location = new System.Drawing.Point(11, 178);
-            this.listResultatsRechercheAjout.Name = "listResultatsRechercheAjout";
-            this.listResultatsRechercheAjout.Size = new System.Drawing.Size(495, 196);
-            this.listResultatsRechercheAjout.TabIndex = 18;
-            // 
-            // lblSeperationVerticale
-            // 
-            this.lblSeperationVerticale.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblSeperationVerticale.Location = new System.Drawing.Point(512, 112);
-            this.lblSeperationVerticale.Name = "lblSeperationVerticale";
-            this.lblSeperationVerticale.Size = new System.Drawing.Size(2, 281);
-            this.lblSeperationVerticale.TabIndex = 17;
-            // 
-            // lblStationsAjout
-            // 
-            this.lblStationsAjout.AutoSize = true;
-            this.lblStationsAjout.Location = new System.Drawing.Point(520, 159);
-            this.lblStationsAjout.Name = "lblStationsAjout";
-            this.lblStationsAjout.Size = new System.Drawing.Size(110, 16);
-            this.lblStationsAjout.TabIndex = 6;
-            this.lblStationsAjout.Text = "Stations ajoutées";
-            // 
-            // lblRechercheAjout
-            // 
-            this.lblRechercheAjout.AutoSize = true;
-            this.lblRechercheAjout.Location = new System.Drawing.Point(8, 159);
-            this.lblRechercheAjout.Name = "lblRechercheAjout";
-            this.lblRechercheAjout.Size = new System.Drawing.Size(145, 16);
-            this.lblRechercheAjout.TabIndex = 5;
-            this.lblRechercheAjout.Text = "Résultats de recherche";
-            // 
-            // txtRechercheStationsAjout
-            // 
-            this.txtRechercheStationsAjout.Location = new System.Drawing.Point(128, 87);
-            this.txtRechercheStationsAjout.Name = "txtRechercheStationsAjout";
-            this.txtRechercheStationsAjout.Size = new System.Drawing.Size(891, 22);
-            this.txtRechercheStationsAjout.TabIndex = 4;
-            // 
-            // lblAjoutStationAjout
-            // 
-            this.lblAjoutStationAjout.AutoSize = true;
-            this.lblAjoutStationAjout.Location = new System.Drawing.Point(6, 90);
-            this.lblAjoutStationAjout.Name = "lblAjoutStationAjout";
-            this.lblAjoutStationAjout.Size = new System.Drawing.Size(116, 16);
-            this.lblAjoutStationAjout.TabIndex = 3;
-            this.lblAjoutStationAjout.Text = "Ajouter une station";
-            // 
-            // txtTerminus2Ajout
-            // 
-            this.txtTerminus2Ajout.ForeColor = System.Drawing.Color.Gray;
-            this.txtTerminus2Ajout.Location = new System.Drawing.Point(578, 16);
-            this.txtTerminus2Ajout.Name = "txtTerminus2Ajout";
-            this.txtTerminus2Ajout.Size = new System.Drawing.Size(441, 22);
-            this.txtTerminus2Ajout.TabIndex = 2;
-            this.txtTerminus2Ajout.Text = "Saisir terminus 2";
-            this.txtTerminus2Ajout.Enter += new System.EventHandler(this.textBoxEnter);
-            this.txtTerminus2Ajout.Leave += new System.EventHandler(this.textBoxLeave);
-            // 
             // lblFlecheAjout
             // 
             this.lblFlecheAjout.AutoSize = true;
             this.lblFlecheAjout.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFlecheAjout.Location = new System.Drawing.Point(454, 6);
+            this.lblFlecheAjout.Location = new System.Drawing.Point(458, 180);
             this.lblFlecheAjout.Name = "lblFlecheAjout";
             this.lblFlecheAjout.Size = new System.Drawing.Size(118, 32);
             this.lblFlecheAjout.TabIndex = 1;
             this.lblFlecheAjout.Text = "←———→";
             // 
-            // txtTerminus1Ajout
-            // 
-            this.txtTerminus1Ajout.ForeColor = System.Drawing.Color.Gray;
-            this.txtTerminus1Ajout.Location = new System.Drawing.Point(8, 16);
-            this.txtTerminus1Ajout.Name = "txtTerminus1Ajout";
-            this.txtTerminus1Ajout.Size = new System.Drawing.Size(440, 22);
-            this.txtTerminus1Ajout.TabIndex = 0;
-            this.txtTerminus1Ajout.Text = "Saisir terminus 1";
-            this.txtTerminus1Ajout.Enter += new System.EventHandler(this.textBoxEnter);
-            this.txtTerminus1Ajout.Leave += new System.EventHandler(this.textBoxLeave);
-            // 
             // tabModifLigne
             // 
-            this.tabModifLigne.Controls.Add(this.listStationsModif);
-            this.tabModifLigne.Controls.Add(this.listResultatsRechecheModif);
+            this.tabModifLigne.Controls.Add(this.comboModifTerminus2);
+            this.tabModifLigne.Controls.Add(this.comboModifTerminus1);
             this.tabModifLigne.Controls.Add(this.label1);
-            this.tabModifLigne.Controls.Add(this.lblStationsAjouteesModif);
-            this.tabModifLigne.Controls.Add(this.lblResultatsRechercheModif);
-            this.tabModifLigne.Controls.Add(this.txtRechercheStationModif);
-            this.tabModifLigne.Controls.Add(this.lblAjoutStationModif);
-            this.tabModifLigne.Controls.Add(this.txtTerminus2Modif);
-            this.tabModifLigne.Controls.Add(this.label5);
-            this.tabModifLigne.Controls.Add(this.txtTerminus1Modif);
+            this.tabModifLigne.Controls.Add(this.cmdModifLigne);
             this.tabModifLigne.Controls.Add(this.comboSelectLigne);
             this.tabModifLigne.Location = new System.Drawing.Point(4, 25);
             this.tabModifLigne.Name = "tabModifLigne";
@@ -226,97 +122,15 @@
             this.tabModifLigne.Text = "Modifier une ligne";
             this.tabModifLigne.UseVisualStyleBackColor = true;
             // 
-            // listStationsModif
+            // cmdModifLigne
             // 
-            this.listStationsModif.FormattingEnabled = true;
-            this.listStationsModif.ItemHeight = 16;
-            this.listStationsModif.Location = new System.Drawing.Point(521, 175);
-            this.listStationsModif.Name = "listStationsModif";
-            this.listStationsModif.Size = new System.Drawing.Size(495, 196);
-            this.listStationsModif.TabIndex = 29;
-            // 
-            // listResultatsRechecheModif
-            // 
-            this.listResultatsRechecheModif.FormattingEnabled = true;
-            this.listResultatsRechecheModif.ItemHeight = 16;
-            this.listResultatsRechecheModif.Location = new System.Drawing.Point(12, 175);
-            this.listResultatsRechecheModif.Name = "listResultatsRechecheModif";
-            this.listResultatsRechecheModif.Size = new System.Drawing.Size(495, 196);
-            this.listResultatsRechecheModif.TabIndex = 28;
-            // 
-            // label1
-            // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(513, 109);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(2, 281);
-            this.label1.TabIndex = 27;
-            // 
-            // lblStationsAjouteesModif
-            // 
-            this.lblStationsAjouteesModif.AutoSize = true;
-            this.lblStationsAjouteesModif.Location = new System.Drawing.Point(521, 156);
-            this.lblStationsAjouteesModif.Name = "lblStationsAjouteesModif";
-            this.lblStationsAjouteesModif.Size = new System.Drawing.Size(110, 16);
-            this.lblStationsAjouteesModif.TabIndex = 26;
-            this.lblStationsAjouteesModif.Text = "Stations ajoutées";
-            // 
-            // lblResultatsRechercheModif
-            // 
-            this.lblResultatsRechercheModif.AutoSize = true;
-            this.lblResultatsRechercheModif.Location = new System.Drawing.Point(9, 156);
-            this.lblResultatsRechercheModif.Name = "lblResultatsRechercheModif";
-            this.lblResultatsRechercheModif.Size = new System.Drawing.Size(145, 16);
-            this.lblResultatsRechercheModif.TabIndex = 25;
-            this.lblResultatsRechercheModif.Text = "Résultats de recherche";
-            // 
-            // txtRechercheStationModif
-            // 
-            this.txtRechercheStationModif.Location = new System.Drawing.Point(125, 84);
-            this.txtRechercheStationModif.Name = "txtRechercheStationModif";
-            this.txtRechercheStationModif.Size = new System.Drawing.Size(891, 22);
-            this.txtRechercheStationModif.TabIndex = 24;
-            // 
-            // lblAjoutStationModif
-            // 
-            this.lblAjoutStationModif.AutoSize = true;
-            this.lblAjoutStationModif.Location = new System.Drawing.Point(7, 87);
-            this.lblAjoutStationModif.Name = "lblAjoutStationModif";
-            this.lblAjoutStationModif.Size = new System.Drawing.Size(116, 16);
-            this.lblAjoutStationModif.TabIndex = 23;
-            this.lblAjoutStationModif.Text = "Ajouter une station";
-            // 
-            // txtTerminus2Modif
-            // 
-            this.txtTerminus2Modif.ForeColor = System.Drawing.Color.Gray;
-            this.txtTerminus2Modif.Location = new System.Drawing.Point(585, 50);
-            this.txtTerminus2Modif.Name = "txtTerminus2Modif";
-            this.txtTerminus2Modif.Size = new System.Drawing.Size(441, 22);
-            this.txtTerminus2Modif.TabIndex = 22;
-            this.txtTerminus2Modif.Text = "Saisir terminus 2";
-            this.txtTerminus2Modif.Enter += new System.EventHandler(this.textBoxEnter);
-            this.txtTerminus2Modif.Leave += new System.EventHandler(this.textBoxLeave);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(456, 40);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 32);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "←———→";
-            // 
-            // txtTerminus1Modif
-            // 
-            this.txtTerminus1Modif.ForeColor = System.Drawing.Color.Gray;
-            this.txtTerminus1Modif.Location = new System.Drawing.Point(10, 50);
-            this.txtTerminus1Modif.Name = "txtTerminus1Modif";
-            this.txtTerminus1Modif.Size = new System.Drawing.Size(440, 22);
-            this.txtTerminus1Modif.TabIndex = 20;
-            this.txtTerminus1Modif.Text = "Saisir terminus 1";
-            this.txtTerminus1Modif.Enter += new System.EventHandler(this.textBoxEnter);
-            this.txtTerminus1Modif.Leave += new System.EventHandler(this.textBoxLeave);
+            this.cmdModifLigne.Location = new System.Drawing.Point(12, 345);
+            this.cmdModifLigne.Name = "cmdModifLigne";
+            this.cmdModifLigne.Size = new System.Drawing.Size(1007, 36);
+            this.cmdModifLigne.TabIndex = 29;
+            this.cmdModifLigne.Text = "Modifier la ligne";
+            this.cmdModifLigne.UseVisualStyleBackColor = true;
+            this.cmdModifLigne.Click += new System.EventHandler(this.cmdModifLigne_Click);
             // 
             // comboSelectLigne
             // 
@@ -326,6 +140,7 @@
             this.comboSelectLigne.Size = new System.Drawing.Size(1011, 24);
             this.comboSelectLigne.TabIndex = 0;
             this.comboSelectLigne.Text = "--Sélectionner une ligne--";
+            this.comboSelectLigne.SelectedIndexChanged += new System.EventHandler(this.comboSelectLigne_SelectedIndexChanged);
             // 
             // tabSupprLigne
             // 
@@ -348,6 +163,7 @@
             this.cmdSupprLigne.TabIndex = 2;
             this.cmdSupprLigne.Text = "Supprimer la ligne";
             this.cmdSupprLigne.UseVisualStyleBackColor = true;
+            this.cmdSupprLigne.Click += new System.EventHandler(this.cmdSupprLigne_Click);
             // 
             // chkConfirmSupprLigne
             // 
@@ -368,6 +184,7 @@
             this.comboSelectLigneSuppr.Size = new System.Drawing.Size(1011, 24);
             this.comboSelectLigneSuppr.TabIndex = 0;
             this.comboSelectLigneSuppr.Text = "--Sélectionner une ligne--";
+            this.comboSelectLigneSuppr.SelectedIndexChanged += new System.EventHandler(this.comboSelectLigneSuppr_SelectedIndexChanged);
             // 
             // tabAjoutStation
             // 
@@ -520,6 +337,77 @@
             this.comboSelectStationSuppr.Text = "--Sélectionner une station--";
             this.comboSelectStationSuppr.SelectedIndexChanged += new System.EventHandler(this.comboSelectStationSuppr_SelectedIndexChanged);
             // 
+            // txtNomLigneAjout
+            // 
+            this.txtNomLigneAjout.ForeColor = System.Drawing.Color.Gray;
+            this.txtNomLigneAjout.Location = new System.Drawing.Point(8, 6);
+            this.txtNomLigneAjout.Name = "txtNomLigneAjout";
+            this.txtNomLigneAjout.Size = new System.Drawing.Size(1011, 22);
+            this.txtNomLigneAjout.TabIndex = 19;
+            this.txtNomLigneAjout.Text = "Saisir le nom de la ligne";
+            this.txtNomLigneAjout.Enter += new System.EventHandler(this.textBoxEnter);
+            this.txtNomLigneAjout.Leave += new System.EventHandler(this.textBoxLeave);
+            // 
+            // cmdAjoutLigne
+            // 
+            this.cmdAjoutLigne.Location = new System.Drawing.Point(11, 348);
+            this.cmdAjoutLigne.Name = "cmdAjoutLigne";
+            this.cmdAjoutLigne.Size = new System.Drawing.Size(1008, 33);
+            this.cmdAjoutLigne.TabIndex = 20;
+            this.cmdAjoutLigne.Text = "Créer la ligne";
+            this.cmdAjoutLigne.UseVisualStyleBackColor = true;
+            this.cmdAjoutLigne.Click += new System.EventHandler(this.cmdAjoutLigne_Click);
+            // 
+            // comboAjoutTerminus1
+            // 
+            this.comboAjoutTerminus1.FormattingEnabled = true;
+            this.comboAjoutTerminus1.Location = new System.Drawing.Point(8, 190);
+            this.comboAjoutTerminus1.Name = "comboAjoutTerminus1";
+            this.comboAjoutTerminus1.Size = new System.Drawing.Size(444, 24);
+            this.comboAjoutTerminus1.TabIndex = 21;
+            this.comboAjoutTerminus1.Text = "--Sélectionner terminus 1--";
+            this.comboAjoutTerminus1.SelectedIndexChanged += new System.EventHandler(this.selectTerminus);
+            // 
+            // comboAjoutTerminus2
+            // 
+            this.comboAjoutTerminus2.FormattingEnabled = true;
+            this.comboAjoutTerminus2.Location = new System.Drawing.Point(582, 188);
+            this.comboAjoutTerminus2.Name = "comboAjoutTerminus2";
+            this.comboAjoutTerminus2.Size = new System.Drawing.Size(436, 24);
+            this.comboAjoutTerminus2.TabIndex = 22;
+            this.comboAjoutTerminus2.Text = "--Sélectionner terminus 2--";
+            this.comboAjoutTerminus2.SelectedIndexChanged += new System.EventHandler(this.selectTerminus);
+            // 
+            // comboModifTerminus2
+            // 
+            this.comboModifTerminus2.FormattingEnabled = true;
+            this.comboModifTerminus2.Location = new System.Drawing.Point(582, 187);
+            this.comboModifTerminus2.Name = "comboModifTerminus2";
+            this.comboModifTerminus2.Size = new System.Drawing.Size(436, 24);
+            this.comboModifTerminus2.TabIndex = 32;
+            this.comboModifTerminus2.Text = "--Sélectionner terminus 2--";
+            this.comboModifTerminus2.SelectedIndexChanged += new System.EventHandler(this.selectModifCombo);
+            // 
+            // comboModifTerminus1
+            // 
+            this.comboModifTerminus1.FormattingEnabled = true;
+            this.comboModifTerminus1.Location = new System.Drawing.Point(8, 189);
+            this.comboModifTerminus1.Name = "comboModifTerminus1";
+            this.comboModifTerminus1.Size = new System.Drawing.Size(444, 24);
+            this.comboModifTerminus1.TabIndex = 31;
+            this.comboModifTerminus1.Text = "--Sélectionner terminus 1--";
+            this.comboModifTerminus1.SelectedIndexChanged += new System.EventHandler(this.selectModifCombo);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(458, 179);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 32);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "←———→";
+            // 
             // PagePanneauAdministration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -556,26 +444,7 @@
         private System.Windows.Forms.TabPage tabModifStation;
         private System.Windows.Forms.TabPage tabSupprStation;
         private System.Windows.Forms.Label lblFlecheAjout;
-        private System.Windows.Forms.TextBox txtTerminus1Ajout;
-        private System.Windows.Forms.TextBox txtTerminus2Ajout;
-        private System.Windows.Forms.Label lblStationsAjout;
-        private System.Windows.Forms.Label lblRechercheAjout;
-        private System.Windows.Forms.TextBox txtRechercheStationsAjout;
-        private System.Windows.Forms.Label lblAjoutStationAjout;
-        private System.Windows.Forms.Label lblSeperationVerticale;
-        private System.Windows.Forms.ListBox listStationsAjout;
-        private System.Windows.Forms.ListBox listResultatsRechercheAjout;
         private System.Windows.Forms.ComboBox comboSelectLigne;
-        private System.Windows.Forms.ListBox listStationsModif;
-        private System.Windows.Forms.ListBox listResultatsRechecheModif;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblStationsAjouteesModif;
-        private System.Windows.Forms.Label lblResultatsRechercheModif;
-        private System.Windows.Forms.TextBox txtRechercheStationModif;
-        private System.Windows.Forms.Label lblAjoutStationModif;
-        private System.Windows.Forms.TextBox txtTerminus2Modif;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtTerminus1Modif;
         private System.Windows.Forms.ComboBox comboSelectLigneSuppr;
         private System.Windows.Forms.Button cmdSupprLigne;
         private System.Windows.Forms.CheckBox chkConfirmSupprLigne;
@@ -590,5 +459,13 @@
         private System.Windows.Forms.Button cmdSupprStation;
         private System.Windows.Forms.CheckBox chkConfirmStationSuppr;
         private System.Windows.Forms.ComboBox comboSelectStationSuppr;
+        private System.Windows.Forms.Button cmdModifLigne;
+        private System.Windows.Forms.TextBox txtNomLigneAjout;
+        private System.Windows.Forms.Button cmdAjoutLigne;
+        private System.Windows.Forms.ComboBox comboAjoutTerminus2;
+        private System.Windows.Forms.ComboBox comboAjoutTerminus1;
+        private System.Windows.Forms.ComboBox comboModifTerminus2;
+        private System.Windows.Forms.ComboBox comboModifTerminus1;
+        private System.Windows.Forms.Label label1;
     }
 }

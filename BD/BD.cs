@@ -1,5 +1,4 @@
-﻿using MySql.Data;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 
@@ -153,6 +152,32 @@ namespace BD
             }
 
             return lines;
+        }
+
+        public static void addLine(Line line)
+        {
+            string query = $"INSERT INTO ligne (nom_ligne, num_gare, num_gare_1) VALUES (\"{line.lineName}\", {line.station1}, {line.station2})";
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+        }
+
+        public static void updateLine(Line line)
+        {
+            string query = $"UPDATE ligne SET num_gare = {line.station1}, num_gare_1 = {line.station2} WHERE nom_ligne = \"{line.lineName}\"";
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+        }
+
+        public static void deleteLine(int id)
+        {
+            string query = $"DELETE FROM ligne WHERE num_ligne = {id};";
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
         }
     }
 }

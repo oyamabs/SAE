@@ -15,6 +15,11 @@ namespace SAE
     {
         private int selectedStationChange = -1;
         private int selectedStationSuppr = -1;
+        private int selectedTerminus1Modif = -1;
+        private int selectedTerminus2Modif = -1;
+        private int selectedTerminus1Ajout = -1;
+        private int selectedTerminus2Ajout = -1;
+        private int selectedLigneSuppr = -1;
         public PagePanneauAdministration()
         {
             InitializeComponent();
@@ -26,36 +31,6 @@ namespace SAE
             
             switch (txt.Name)
             {
-                case "txtTerminus1Ajout":
-                    if (txtTerminus1Ajout.Text == "Saisir terminus 1" && txtTerminus1Ajout.ForeColor == Color.Gray)
-                    {
-                        txtTerminus1Ajout.Text = "";
-                        txtTerminus1Ajout.ForeColor = Color.Black;
-                    }
-                    break;
-
-                case "txtTerminus2Ajout":
-                    if (txtTerminus2Ajout.Text == "Saisir terminus 2" && txtTerminus2Ajout.ForeColor == Color.Gray)
-                    {
-                        txtTerminus2Ajout.Text = "";
-                        txtTerminus2Ajout.ForeColor = Color.Black;
-                    }
-                    break;
-
-                case "txtTerminus1Modif":
-                    if (txtTerminus1Modif.Text == "Saisir terminus 1" && txtTerminus1Modif.ForeColor == Color.Gray)
-                    {
-                        txtTerminus1Modif.Text = "";
-                        txtTerminus1Modif.ForeColor = Color.Black;
-                    }
-                    break;
-                case "txtTerminus2Modif":
-                    if (txtTerminus2Modif.Text == "Saisir terminus 2" && txtTerminus2Modif.ForeColor == Color.Gray)
-                    {
-                        txtTerminus2Modif.Text = "";
-                        txtTerminus2Modif.ForeColor = Color.Black;
-                    }
-                    break;
                 case "txtAjoutStation":
                     if (txtAjoutStation.Text == "Saisir le nom de la station" && txtAjoutStation.ForeColor == Color.Gray)
                     {
@@ -63,6 +38,14 @@ namespace SAE
                         txtAjoutStation.ForeColor = Color.Black;
                     }
                     break;
+                case "txtNomLigneAjout":
+                    if (txtNomLigneAjout.Text == "Saisir le nom de la ligne" && txtNomLigneAjout.ForeColor == Color.Gray)
+                    {
+                        txtNomLigneAjout.Text = "";
+                        txtNomLigneAjout.ForeColor = Color.Black;
+                    }
+                        
+                        break;
                 default:
                     break;
             }
@@ -74,40 +57,18 @@ namespace SAE
 
             switch (txt.Name)
             {
-                case "txtTerminus1Ajout":
-                    if (txtTerminus1Ajout.Text == "" && txtTerminus1Ajout.ForeColor == Color.Black)
-                    {
-                        txtTerminus1Ajout.Text = "Saisir terminus 1";
-                        txtTerminus1Ajout.ForeColor = Color.Gray;
-                    }
-                    break;
-
-                case "txtTerminal2Ajout":
-                    if (txtTerminus2Ajout.Text == "" && txtTerminus2Ajout.ForeColor == Color.Black)
-                    {
-                        txtTerminus2Ajout.Text = "Saisir terminus 2";
-                        txtTerminus2Ajout.ForeColor = Color.Gray;
-                    }
-                    break;
-                case "txtTerminus1Modif":
-                    if (txtTerminus1Modif.Text == "" && txtTerminus1Modif.ForeColor == Color.Black)
-                    {
-                        txtTerminus1Modif.Text = "Saisir terminus 1";
-                        txtTerminus1Modif.ForeColor = Color.Gray;
-                    }
-                    break;
-                case "txtTerminus2Modif":
-                    if (txtTerminus2Modif.Text == "" && txtTerminus2Modif.ForeColor == Color.Black)
-                    {
-                        txtTerminus2Modif.Text = "Saisir terminus 2";
-                        txtTerminus2Modif.ForeColor = Color.Gray;
-                    }
-                    break;
                 case "txtAjoutStation":
                     if (txtAjoutStation.Text == "" && txtAjoutStation.ForeColor == Color.Black)
                     {
                         txtAjoutStation.Text = "Saisir le nom de la station";
                         txtAjoutStation.ForeColor = Color.Gray;
+                    }
+                    break;
+                case "txtNomLigneAjout":
+                    if (txtNomLigneAjout.Text == "" && txtNomLigneAjout.ForeColor == Color.Black)
+                    {
+                        txtNomLigneAjout.Text = "Saisir le nom de la ligne";
+                        txtNomLigneAjout.ForeColor = Color.Gray;
                     }
                     break;
                 default:
@@ -139,11 +100,22 @@ namespace SAE
         private void PagePanneauAdministration_Load(object sender, EventArgs e)
         {
             List<Station> stations = BD.BD.getStations();
+            List<Line> lines = BD.BD.getLines();
 
             foreach (Station station in stations)
             {
                 comboSelectStationModif.Items.Add(station.stationName);
                 comboSelectStationSuppr.Items.Add(station.stationName);
+                comboAjoutTerminus1.Items.Add(station.stationName);
+                comboAjoutTerminus2.Items.Add(station.stationName);
+                comboModifTerminus1.Items.Add(station.stationName);
+                comboModifTerminus2.Items.Add(station.stationName);
+            }
+
+            foreach (Line line in lines)
+            {
+                comboSelectLigne.Items.Add(line.lineName);
+                comboSelectLigneSuppr.Items.Add(line.lineName);
             }
         }
 
@@ -196,6 +168,114 @@ namespace SAE
             catch (Exception)
             {
                 MessageBox.Show("Selectionnez une station");
+            }
+        }
+
+        private void comboSelectLigne_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Station> stations = BD.BD.getStations();
+            List<Line> lines = BD.BD.getLines();
+            const int offset = 1; // les listes commencent à 0 et le premier élément pour les gares est 1
+            foreach (Line line in lines)
+            {
+                if (line.lineName == comboSelectLigne.Text)
+                {
+                    
+                    comboModifTerminus1.Text = stations[line.station1 - offset].stationName;
+                    comboModifTerminus2.Text = stations[line.station2 - offset].stationName;
+                }
+            }
+
+            foreach (Station station in stations)
+            {
+                if (station.stationName == comboModifTerminus1.Text)
+                    selectedTerminus1Modif = station.stationId;
+
+                if (station.stationName == comboModifTerminus2.Text)
+                    selectedTerminus2Modif = station.stationId;
+            }
+        }
+
+        private void cmdModifLigne_Click(object sender, EventArgs e)
+        {
+            Line line = new Line(0, comboSelectLigne.SelectedItem.ToString(), selectedTerminus1Modif, selectedTerminus2Modif);
+
+            BD.BD.updateLine(line);
+        }
+
+        private void selectTerminus(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+            List<Station> stations = BD.BD.getStations();
+
+            if (cmb.Name == "comboAjoutTerminus1")
+            {
+                foreach (Station station in stations)
+                {
+                    if (station.stationName == cmb.Text)
+                        selectedTerminus1Ajout = station.stationId;
+                }
+            }
+            else
+            {
+                foreach (Station station in stations)
+                {
+                    if (station.stationName == cmb.Text)
+                        selectedTerminus2Ajout = station.stationId;
+                }
+            }
+        }
+
+        private void cmdAjoutLigne_Click(object sender, EventArgs e)
+        {
+            Line line = new Line(0, txtNomLigneAjout.Text, selectedTerminus1Ajout, selectedTerminus2Ajout);
+
+            BD.BD.addLine(line);
+        }
+
+        private void selectModifCombo(object sender, EventArgs e)
+        {
+            ComboBox cmb = (ComboBox)sender;
+            List<Station> stations = BD.BD.getStations();
+
+            if (cmb.Name == "comboModifTerminus1")
+            {
+                foreach (Station station in stations)
+                {
+                    if (station.stationName == cmb.Text)
+                        selectedTerminus1Modif = station.stationId;
+                }
+            }
+            else
+            {
+                foreach (Station station in stations)
+                {
+                    if (station.stationName == cmb.Text)
+                        selectedTerminus2Modif = station.stationId;
+                }
+            }
+        }
+
+        private void comboSelectLigneSuppr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Line> lines = BD.BD.getLines();
+
+            foreach(Line line in lines)
+            {
+                if (line.lineName == comboSelectLigneSuppr.Text)
+                    selectedLigneSuppr = line.lineId;
+            }
+        }
+
+        private void cmdSupprLigne_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BD.BD.deleteLine(selectedLigneSuppr);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Selectionnez une ligne");
             }
         }
     }
