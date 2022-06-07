@@ -10,7 +10,8 @@ namespace BD
     {
         public int lineId { get; private set; }
         public string lineName { get; private set; }
-
+        public int station1 { get; private set; }
+        public int station2 { get; private set; }
 
     }
 }
