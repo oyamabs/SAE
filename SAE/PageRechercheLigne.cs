@@ -138,7 +138,7 @@ namespace SAE
             foreach (Station station in stations)
             {
                 if (station.stationName == listResultatsDep.Text)
-                    MessageBox.Show(station.stationId.ToString());
+                    lblStationSelectionneeDep.Text = $"Station sélectionnée: {station.stationName}";
             }
         }
 
@@ -149,6 +149,15 @@ namespace SAE
             if (e.KeyCode == Keys.Enter)
             {
                 searchResults((textBox.Name == "txtStationDep") ? true : false, textBox.Text);
+            }
+        }
+
+        private void listResultatsArr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Station station in stations)
+            {
+                if (station.stationName == listResultatsArr.Text)
+                    lblStationSelectionneeArr.Text = $"Station sélectionnée: {station.stationName}";
             }
         }
     }
