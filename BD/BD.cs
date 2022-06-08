@@ -57,6 +57,15 @@ namespace BD
         }
 
         /// <summary>
+        /// Recharge la connexion à la BD
+        /// </summary>
+        public static void resetConnection()
+        {
+            closeConnection();
+            initConnection();
+        }
+
+        /// <summary>
         /// Chercher toutes les stations de la BDD
         /// </summary>
         /// <returns>la liste des stations</returns>
@@ -109,7 +118,7 @@ namespace BD
             MySqlCommand cmd = new MySqlCommand(query, conn);
 
             MySqlDataReader reader = cmd.ExecuteReader();
-
+            resetConnection();
         }
 
         /// <summary>
@@ -128,6 +137,7 @@ namespace BD
             MySqlCommand sql = new MySqlCommand(query, conn);
 
             MySqlDataReader reader = sql.ExecuteReader();
+            resetConnection();
         }
 
         /// <summary>
@@ -140,7 +150,7 @@ namespace BD
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
-
+            resetConnection();
         }
 
         /// <summary>
@@ -191,6 +201,7 @@ namespace BD
             MySqlCommand cmd = new MySqlCommand(query, conn);
 
             MySqlDataReader reader = cmd.ExecuteReader();
+            resetConnection();
         }
 
         /// <summary>
@@ -204,6 +215,7 @@ namespace BD
             MySqlCommand cmd = new MySqlCommand(query, conn);
 
             MySqlDataReader reader = cmd.ExecuteReader();
+            resetConnection();
         }
 
         /// <summary>
@@ -216,6 +228,9 @@ namespace BD
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
+            resetConnection();
         }
+
+        
     }
 }
