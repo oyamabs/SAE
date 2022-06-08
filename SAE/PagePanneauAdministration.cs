@@ -95,12 +95,21 @@ namespace SAE
             }
 
             BD.BD.addStation(new Station(0, txtAjoutStation.Text, chkAscenceurAjout.Checked, chkStationnementAjout.Checked));
+            PagePanneauAdministration_Load(sender, e);
         }
 
         private void PagePanneauAdministration_Load(object sender, EventArgs e)
         {
             List<Station> stations = BD.BD.getStations();
             List<Line> lines = BD.BD.getLines();
+
+            // clear des combobox pour être sûr qu'il n'y ait aucun 'résidu' de précédentes données
+            comboSelectStationModif.Items.Clear();
+            comboSelectStationSuppr.Items.Clear();
+            comboAjoutTerminus1.Items.Clear();
+            comboAjoutTerminus2.Items.Clear();
+            comboModifTerminus1.Items.Clear();
+            comboModifTerminus2.Items.Clear();
 
             foreach (Station station in stations)
             {
@@ -145,6 +154,7 @@ namespace SAE
             {
                 MessageBox.Show("Erreur, sélectionnez une station");
             }
+            PagePanneauAdministration_Load(sender, e);
         }
 
         private void comboSelectStationSuppr_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,6 +179,8 @@ namespace SAE
             {
                 MessageBox.Show("Selectionnez une station");
             }
+
+            PagePanneauAdministration_Load(sender, e);
         }
 
         private void comboSelectLigne_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,6 +213,7 @@ namespace SAE
             Line line = new Line(0, comboSelectLigne.SelectedItem.ToString(), selectedTerminus1Modif, selectedTerminus2Modif);
 
             BD.BD.updateLine(line);
+            PagePanneauAdministration_Load(sender, e);
         }
 
         private void selectTerminus(object sender, EventArgs e)
@@ -231,6 +244,8 @@ namespace SAE
             Line line = new Line(0, txtNomLigneAjout.Text, selectedTerminus1Ajout, selectedTerminus2Ajout);
 
             BD.BD.addLine(line);
+            PagePanneauAdministration_Load(sender, e);
+
         }
 
         private void selectModifCombo(object sender, EventArgs e)
@@ -277,6 +292,8 @@ namespace SAE
             {
                 MessageBox.Show("Selectionnez une ligne");
             }
+
+            PagePanneauAdministration_Load(sender, e);
         }
     }
 }
