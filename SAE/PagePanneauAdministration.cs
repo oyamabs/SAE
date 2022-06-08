@@ -110,6 +110,8 @@ namespace SAE
             comboAjoutTerminus2.Items.Clear();
             comboModifTerminus1.Items.Clear();
             comboModifTerminus2.Items.Clear();
+            comboSelectLigne.Items.Clear();
+            comboSelectLigneSuppr.Items.Clear();
 
             foreach (Station station in stations)
             {
